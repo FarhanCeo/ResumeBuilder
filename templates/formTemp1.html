@@ -1,0 +1,409 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/formTemp1.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <title>Template1 form</title>
+    <script>
+        
+            
+        function positionq(){
+            //scroll height
+            var scrollHeight = document.documentElement.scrollHeight;
+            console.log(scrollHeight);
+            //window height
+            var windowHeight = window.innerHeight;
+            console.log(windowHeight);
+            var eduheading = document.getElementById('education_heading').offsetTop;
+            var form_label11 =  document.getElementsByClassName('form_label11')[0].offsetTop;
+            var form_label12 =  document.getElementsByClassName('form_label12')[0].offsetTop;
+            var form_label13 =  document.getElementsByClassName('form_label13')[0].offsetTop;
+            var form_label14 =  document.getElementsByClassName('form_label14')[0].offsetTop;
+            //print position
+            console.log("eduheading start: "+eduheading);
+            console.log("form_label11 start: "+form_label11);
+            console.log("form_label12 start: "+form_label12);
+            console.log("form_label13 start: "+form_label13);
+            console.log("form_label14 start: "+form_label14);
+
+        }
+        function getposition(){
+            var form_input11 =  document.getElementsByClassName('formi form_input11')[0].offsetTop;
+            var form_input12 =  document.getElementsByClassName('formi form_input12')[0].offsetTop;
+            var form_input13 =  document.getElementsByClassName('formi form_input13')[0].offsetTop;
+            var form_input14 =  document.getElementsByClassName('formi form_input14')[0].offsetTop;
+
+            var eduheading = document.getElementById('education_heading').offsetTop;
+            var form_label11 =  document.getElementsByClassName('form_label11')[0].offsetTop;
+            var form_label12 =  document.getElementsByClassName('form_label12')[0].offsetTop;
+            var form_label13 =  document.getElementsByClassName('form_label13')[0].offsetTop;
+            var form_label14 =  document.getElementsByClassName('form_label14')[0].offsetTop;
+            //print position
+            console.log("eduheading: "+eduheading);
+            console.log("form_input11: "+form_input11);
+            console.log("form_input12: "+form_input12);
+            console.log("form_input13: "+form_input13);
+            console.log("form_input14: "+form_input14);
+
+            console.log("form_label11 : "+form_label11);
+            console.log("form_label12 : "+form_label12);
+            console.log("form_label13 : "+form_label13);
+            console.log("form_label14 : "+form_label14);
+        }
+
+        function visible(e) {
+            
+            var x = document.getElementById(e);
+            x.style.display = "block";
+        }
+        function notvisible(e) {
+            var x = document.getElementById(e);
+            x.style.display = "none";
+        }
+        i=2;
+        function addcompany(){
+
+            //get length of class 'formi'
+            var formilen = document.getElementsByClassName('formi').length;
+            //create heading4 element
+            var newheading = document.createElement('h4');
+            //set innerHTML of heading4 element to 'Company Name'
+            newheading.innerHTML = 'work experience '+i;
+            //append heading4 element to 'extra_company' div
+            
+            //get length of  cname attribute of 'extra_company' div
+
+            var len = document.getElementById('extra_company').childElementCount;
+            //print length
+            len = len + 1;
+            i++;
+
+
+
+            //create elements 
+            //Organization name
+            var cnameInput = document.createElement('input');
+            var cnameLabel = document.createElement('label');
+            //Role
+            var croleInput = document.createElement('input');
+            var croleLabel = document.createElement('label');
+            //date
+            var cdateInput = document.createElement('input');
+            var cdateLabel = document.createElement('label');
+            //description
+            var cdescInput = document.createElement('textarea');
+            var cdescLabel = document.createElement('label');
+
+            //set input attributes
+            cnameInput.setAttribute('type', 'text');
+            cnameInput.setAttribute('id', 'cname'+len);
+            cnameInput.setAttribute('class','formi form_input'+(formilen+1));
+            cnameInput.setAttribute('autocomplete','off');
+            cnameInput.setAttribute('placeholder', 'Company Name');
+            cnameInput.setAttribute('name', 'cname'+(len-3));
+
+            croleInput.setAttribute('type', 'text');
+            croleInput.setAttribute('id', 'crole'+len);
+            croleInput.setAttribute('class','formi form_input'+(formilen+1));
+            croleInput.setAttribute('autocomplete','off');
+            croleInput.setAttribute('placeholder', 'Role');
+            croleInput.setAttribute('name', 'crole'+(len-3));
+
+            cdateInput.setAttribute('type', 'text');
+            cdateInput.setAttribute('id', 'cdate'+len);
+            cdateInput.setAttribute('class','formi form_input'+(formilen+1));
+            cdateInput.setAttribute('autocomplete','off');
+            cdateInput.setAttribute('placeholder', 'Date');
+            cdateInput.setAttribute('name', 'cdate'+(len-3));
+
+            cdescInput.setAttribute('type', 'textarea');
+            cdescInput.setAttribute('id', 'cdesc'+len);
+            cdescInput.setAttribute('class','formi form_input'+(formilen+1));
+            cdescInput.setAttribute('autocomplete','off');
+            cdescInput.setAttribute('placeholder', 'Company Description');
+            cdescInput.setAttribute('name', 'cdesc'+(len-3));
+            cdescInput.setAttribute('rows', '6');
+            cdescInput.setAttribute('cols', '50');
+            
+            //set label attributes
+            cnameLabel.setAttribute('for', 'cname'+len);
+            cnameLabel.setAttribute('class', 'form_label'+len);
+            cnameLabel.style.position = 'absolute';
+            cnameLabel.innerHTML = '';
+
+            croleLabel.setAttribute('for', 'crole'+len);
+            croleLabel.setAttribute('class', 'form_label'+len);
+            croleLabel.style.position = 'absolute';
+            croleLabel.innerHTML = '';
+
+            cdateLabel.setAttribute('for', 'cdate'+len);
+            cdateLabel.setAttribute('class', 'form_label'+len);
+            cdateLabel.style.position = 'absolute';
+            cdateLabel.innerHTML = '';
+
+            cdescLabel.setAttribute('for', 'cdesc'+len);
+            cdescLabel.setAttribute('class', 'form_label'+len);
+            cdescLabel.style.position = 'absolute';
+            cdescLabel.innerHTML = '';
+
+
+            //append input and label to 'extra_company' div
+            document.getElementById('extra_company').appendChild(newheading);
+
+            document.getElementById('extra_company').appendChild(cnameInput);
+            document.getElementById('extra_company').appendChild(cnameLabel);
+            document.getElementById('extra_company').appendChild(document.createElement('br'));
+            document.getElementById('extra_company').appendChild(croleInput);
+            document.getElementById('extra_company').appendChild(croleLabel);
+            document.getElementById('extra_company').appendChild(document.createElement('br'));
+            document.getElementById('extra_company').appendChild(cdateInput);
+            document.getElementById('extra_company').appendChild(cdateLabel);
+            document.getElementById('extra_company').appendChild(document.createElement('br'));
+            document.getElementById('extra_company').appendChild(cdescInput);
+            document.getElementById('extra_company').appendChild(cdescLabel);
+            
+           //###################################################3333333333333333333333333333333333333333
+            //calculate position labels on input focus according to scroll height
+
+            
+           getposition();
+           var scrollHeight = document.documentElement.scrollHeight;
+           console.log(scrollHeight);
+           var windowHeight = window.innerHeight;
+            console.log(windowHeight);
+    
+        }
+        j =2
+        function addeducation(){
+            //get length of class 'formi'
+            var formilen = document.getElementsByClassName('formi').length;
+            //create heading4 element
+            var newheading = document.createElement('h4');
+            //set innerHTML of heading4 element to 'Company Name'
+            newheading.innerHTML = 'Education '+j;
+            //append heading4 element to 'extra_company' div
+            
+            //get length of  cname attribute of 'extra_company' div
+
+            var len = document.getElementById('extra_education').childElementCount;
+            //print length
+            len = len + 1;
+            j++;
+
+            //create elements 
+            //Organization name
+            var snameInput = document.createElement('input');
+            var snameLabel = document.createElement('label');
+            //Role
+            var degreeInput = document.createElement('input');
+            var degreeLabel = document.createElement('label');
+            //date
+            var sdInput = document.createElement('input');
+            var sdLabel = document.createElement('label');
+            //description
+            var sdInput1 = document.createElement('input');
+            var sdLabel1 = document.createElement('label');
+
+            //set input attributes
+            snameInput.setAttribute('type', 'text');
+            snameInput.setAttribute('id', 'cname'+len);
+            snameInput.setAttribute('class','formi form_input'+(formilen+1));
+            snameInput.setAttribute('autocomplete','off');
+            snameInput.setAttribute('placeholder', 'Institute Name');
+            snameInput.setAttribute('name', 'schoolname'+(len-3));
+
+            degreeInput.setAttribute('type', 'text');
+            degreeInput.setAttribute('id', 'crole'+len);
+            degreeInput.setAttribute('class','formi form_input'+(formilen+1));
+            degreeInput.setAttribute('autocomplete','off');
+            degreeInput.setAttribute('placeholder', 'Degree');
+            degreeInput.setAttribute('name', 'degree'+(len-3));
+
+            sdInput.setAttribute('type', 'text');
+            sdInput.setAttribute('id', 'cdate'+len);
+            sdInput.setAttribute('class','formi form_input'+(formilen+1));
+            sdInput.setAttribute('autocomplete','off');
+            sdInput.setAttribute('placeholder', 'Date');
+            sdInput.setAttribute('name', 'sdate'+(len-3));
+
+            sdInput1.setAttribute('type', 'text');
+            sdInput1.setAttribute('id', 'cdate'+len);
+            sdInput1.setAttribute('class','formi form_input'+(formilen+1));
+            sdInput1.setAttribute('autocomplete','off');
+            sdInput1.setAttribute('placeholder', 'Marks');
+            sdInput1.setAttribute('name', 'smarks'+(len-3));
+            
+
+
+            document.getElementById('extra_education').appendChild(newheading);
+
+            document.getElementById('extra_education').appendChild(snameInput);
+            document.getElementById('extra_education').appendChild(snameLabel);
+            document.getElementById('extra_education').appendChild(document.createElement('br'));
+            document.getElementById('extra_education').appendChild(degreeInput);
+            document.getElementById('extra_education').appendChild(degreeLabel);
+            document.getElementById('extra_education').appendChild(document.createElement('br'));
+            document.getElementById('extra_education').appendChild(sdInput);
+            document.getElementById('extra_education').appendChild(sdLabel);
+            document.getElementById('extra_education').appendChild(document.createElement('br'));
+            document.getElementById('extra_education').appendChild(sdInput1);
+            document.getElementById('extra_education').appendChild(sdLabel1);
+
+        }
+        k=2
+        l =0
+        function addskills(){
+            var len = document.getElementById('extra_skills').childElementCount;
+            //print lengthk""",dsfgnnhh
+            console.log("k=",k);
+            //console.log("Skill length1=",len);
+            //n = len;
+            //console.log("Skill length2=",n);
+            console.log("l =",l)
+            o = l+1 
+            var formilen = document.getElementsByClassName('formi').length;
+            
+            var skillInput = document.createElement('input');
+            var skillLabel = document.createElement('label');
+
+            skillInput.setAttribute('type', 'text');
+            skillInput.setAttribute('id', 'skill'+o);
+            skillInput.setAttribute('class','formi form_input'+(formilen+1));
+            skillInput.setAttribute('autocomplete','off');
+            skillInput.setAttribute('placeholder', 'Skill'+k);
+            skillInput.setAttribute('name', 'skill'+k);
+
+            skillLabel.setAttribute('for', 'skill'+o);
+            skillLabel.setAttribute('class', 'form_label'+o);
+            skillLabel.style.position = 'absolute';
+            skillLabel.innerHTML = '';
+
+            document.getElementById('extra_skills').appendChild(skillInput);
+            document.getElementById('extra_skills').appendChild(skillLabel);
+            document.getElementById('extra_skills').appendChild(document.createElement('br'));
+            k++;
+            l++;
+        }
+
+    </script>
+</head>
+<body onload="positionq()">
+    <div class="info">
+        <!--add summaryry-->
+        <div id="nameinfo"> NAME INFO ======Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui doloremque, voluptatibus nihil quia, culpa molestias quis quidem, minima labore earum autem placeat reprehenderit eligendi animi vitae. Mollitia animi odit optio.</div>
+        <div id="phoneinfo"> Name  Phone  Email  Address  City  State  Zip  Country  </div>
+        <div id="emailinfo"> EMAIL INFO ======Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui doloremque, voluptatibus nihil quia, culpa molestias quis quidem, minima labore earum autem placeat reprehenderit eligendi animi vitae. Mollitia animi odit optio.</div>
+        <div id="addressinfo"> ADDRESS INFO ======Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui doloremque, voluptatibus nihil quia, culpa molestias quis quidem, minima labore earum autem placeat reprehenderit eligendi animi vitae. Mollitia animi odit optio.</div>
+        <div id="linkinfo"> LINK INFO ======Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui doloremque, voluptatibus nihil quia, culpa molestias quis quidem, minima labore earum autem placeat reprehenderit eligendi animi vitae. Mollitia animi odit optio.</div>
+        
+    </div>
+
+    <!--Add heading Fill your Information-->
+    <h1 style="font-family: 'Sofia', sans-serif;  margin-top:0rem;margin-bottom:0rem;">Fill your Information</h1>
+    <!--<div class="heading" style="font-family: 'Sofia', sans-serif;">
+        <h1>Fill your Information</h1>
+    </div>-->
+
+<form action="http://localhost:5000/processing1" method="POST">
+    <!--Place the submit button at center-->
+    <div class="submit" style="text-align: center;">
+        <input type="submit" value="Submit" style="font-family: 'Sofia', sans-serif;font-size:medium;width:150px;height:40px;">
+        <input type="text" name="filename" placeholder="Enter name of your resume file" class="formi">
+    </div>
+
+    <div class="form" >
+        <!--Imput name, phone, address, linkedinid,  -->
+        <div class="group1">
+        <h3>Add your personal info</h3>
+        <div class="form-group1">
+        <input type="text" id="name" name="yourname" class="formi form_input1" autocomplete="off" placeholder="Your Name" onfocus="visible(e = 'nameinfo')" onblur="notvisible(e ='nameinfo')">
+        <label for="name" class="form_label1" ></label>
+        </div>
+        <div class="form-group1">
+        <input type="text" id="phone" name="phonenumber" class="formi form_input2" autocomplete="off" placeholder="Phone Number" onfocus="visible(e = 'phoneinfo')" onblur="notvisible(e ='phoneinfo')">
+        <label for="phone" class="form_label2"></label>
+        </div>
+        <div class="form-group1">
+        <input type="text" id="address" name="address" class="formi form_input3" autocomplete="off" placeholder="Address" onfocus="visible(e = 'addressinfo')" onblur="notvisible(e ='addressinfo')">
+        <label for="address" class="form_label3"></label>
+        </div>
+        <div class="form-group1">
+        <input type="text" id="email" name="email" class="formi form_input4" autocomplete="off" placeholder="Email" onfocus="visible(e = 'emailinfo')" onblur="notvisible(e ='emailinfo')">
+        <label for="email" class="form_label4"></label>
+        </div>
+        <div class="form-group1">
+        <input type="text" id="linkedinid" name="linkid" class="formi form_input5" autocomplete="off" placeholder="Linkedin ID" onfocus="visible(e = 'linkinfo')" onblur="notvisible(e ='linkinfo')">
+        <label for="linkedinid" class="form_label5"></label>
+        </div>
+        </div>
+        <div class="group2">
+        <h3>Add Resume Summary</h3>
+        <div class="form-group2">
+            <textarea id="summary" class="formi form_input6" autocomplete="off" placeholder=" " name="summary" rows="6" cols="50"></textarea>
+            <!--<input type="text" id="summary" class="formi form_input6" autocomplete="off" placeholder=" " name="summary">-->
+            <label for="summary" class="form_label6">Resume Summary</label>
+        </div>
+        </div>
+        <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@GROUP 3@@@@@@@@@@@@@@@@@@@@@@@-->
+        <div class="group3">
+            <h3>Add your Work info <button style="padding: 8px; font-size:9px; border-radius:12px;background-color:#00ff00;border-color:#00ff00;" onclick="addcompany()" type="button">ADD MORE</button></h3>
+            <h4>Work experience 1</h4>
+            <div class="form-group3">
+                <input type="text" id="cname1" class="formi form_input7" autocomplete="off" placeholder="Organization Name " name="cname1">
+                <!--<label for="cname1" class="form_label7" style=" ">Organization Name</label>  -->              
+            </div>
+            <div class="form-group3">
+                <input type="text" id="crole1" class="formi form_input8" autocomplete="off" placeholder="Role " name="crole1">
+                <!--<label for="crole1" class="form_label8">Role</label>-->
+            </div>
+            <div class="form-group3">
+                <input type="text" id="cdate1" class="formi form_input9" autocomplete="off" placeholder="Date" name="cdate1">
+                <!--<label for="cdate1" class="form_label9">date</label>  -->             
+            </div>    
+            <div class="form-group3">
+                <!--Text area-->     
+                <textarea id="cdesc1" class="formi form_input10" autocomplete="off" placeholder="Description" name="cdesc1" rows="6" cols="50"></textarea>
+                <!--<label for="cdesc1" class="form_label10">description</label>    -->  
+            </div>
+            <div id="extra_company"></div>
+        </div>
+        <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@GROUP 4@@@@@@@@@@@@@@@@@@@@@-->
+        <div class="group4">
+            <h3 id="education_heading">Add your Education <button style="padding: 8px; font-size:9px; border-radius:12px;background-color:#00ff00;border-color:#00ff00;" onclick="addeducation()" type="button">ADD MORE</button></h3>
+            <div class="form-group4">
+                <input type="text" id="schoolname1" class="formi form_input11" autocomplete="off" placeholder=" " name="schoolname1">
+                <label for="schoolname1" class="form_label11" >Institute Namedd </label>
+
+            </div>
+            <div class="form-group4">
+                <input type="text" id="degree1" class="formi form_input12" autocomplete="off" placeholder=" " name="degree1">
+                <label for="degree1" class="form_label12">Degree</label>
+            </div>
+            <div class="form-group4">
+                <input type="text" id="sdate1" class="formi form_input13" autocomplete="off" placeholder=" " name="sdate1">
+                <label for="sdate1" class="form_label13">SCHOOL Datef </label>
+            </div>
+            <div class="form-group4">
+                <input type="text" id="smarks1" class="formi form_input14" autocomplete="off" placeholder=" " name="smarks1">
+                <label for="smarks1" class="form_label14">Marks</label>
+            </div>  
+            <div id="extra_education"></div>
+        </div>
+        <div class="group5">
+            <h3>Add your Skills <button style="padding: 8px; font-size:9px; border-radius:12px;background-color:#00ff00;border-color:#00ff00;" onclick="addskills()" type="button">ADD MORE</button></h3>
+            <div class="form-group5">
+                <input type="text" id="skill1" class="formi form_input15" autocomplete="off" placeholder=" " name="skill1">
+                <label for="skill1" class="form_label15">Skills</label>
+            </div>  
+            <div id="extra_skills"></div>
+        </div>
+
+    </div>
+    
+</form>
+    
+</body>
+</html>
+
